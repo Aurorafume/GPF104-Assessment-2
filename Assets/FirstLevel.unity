@@ -355,7 +355,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &137721846
 RectTransform:
   m_ObjectHideFlags: 0
@@ -551,7 +551,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Settings
+  m_text: 'Menu
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b694d7a1d71f12d42a9c287efe520fb6, type: 2}
   m_sharedMaterial: {fileID: -4824327406222195388, guid: b694d7a1d71f12d42a9c287efe520fb6, type: 2}
@@ -1138,7 +1140,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 253.34439, y: -19.09079}
+  m_AnchoredPosition: {x: 253.34436, y: -19.09079}
   m_SizeDelta: {x: 1.3353882, y: 1.4010925}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &682345427
@@ -1153,6 +1155,7 @@ GameObject:
   - component: {fileID: 682345430}
   - component: {fileID: 682345429}
   - component: {fileID: 682345428}
+  - component: {fileID: 682345432}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1243,6 +1246,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &682345432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682345427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4ed7a4ad3a27204ab4ffe6651549949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenuUI: {fileID: 137721845}
 --- !u!1 &717886875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,7 +1745,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 798199391}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 682345432}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &798199391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1958,7 +1986,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 994670769}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 682345432}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &994670769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2168,7 +2208,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 7590887f1909d0046babd2d892a8daf6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b9bdf85996c3e7948bd55201719b6f81, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2272,7 +2312,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2585,7 +2625,7 @@ GameObject:
   - component: {fileID: 1651970942}
   - component: {fileID: 1651970941}
   m_Layer: 5
-  m_Name: Settings
+  m_Name: Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2655,7 +2695,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1651970942}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 682345432}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: LoadMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1651970942
 MonoBehaviour:
   m_ObjectHideFlags: 0
