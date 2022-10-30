@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
 {
+    public Animator animator;
+
     private float horizontal;
     private float speed = 8f;
     private float jumpingPower = 16f;
     private bool isFacingRight = true;
     private bool isGrounded;
+    float horizontalMove = 0f;
+
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -16,8 +20,10 @@ public class Player_Movement : MonoBehaviour
 
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
+        horizontalMove = Input.GetAxisRaw("Horizontal");
         Flip();
+
+        animator.SetFloat("speed", Mathf.Abs(horizontalMove));
     }
 
     private void FixedUpdate()
