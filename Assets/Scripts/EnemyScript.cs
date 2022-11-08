@@ -7,6 +7,10 @@ public class EnemyScript : MonoBehaviour
     public int enemyHP = 3;
     private bool isFacingRight = true;
     private Vector3 startingPosition;
+    private bool playerDetected = false;
+    public int playerSensorDistance = 5;
+    private Collider2D playerSensor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,18 +32,6 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
-    // make enemy notice player and move towards player when player is in range
-    void playerSensor(Collider2D other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            transform.position = Vector3.MoveTowards(transform.position, other.transform.position, 1 * Time.deltaTime);
-            // make enemy deal 2 damage to player
-            other.gameObject.GetComponent<Heart_System>().life -= 2;
-            
-        }
-    } 
-
     private void Flip()
     {   
         isFacingRight = !isFacingRight;
@@ -47,5 +39,4 @@ public class EnemyScript : MonoBehaviour
         localScale.x *= -1f;
         transform.localScale = localScale;
     }
-
 }

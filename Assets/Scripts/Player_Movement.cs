@@ -24,15 +24,7 @@ public class Player_Movement : MonoBehaviour
         Flip();
 
         animator.SetFloat("speed", Mathf.Abs(horizontalMove));
-
-        
-        
-
-        
     }
-
-    
-    
 
     private void FixedUpdate()
     {
