@@ -19,7 +19,7 @@ public class EnemyScript : MonoBehaviour
 
         int distance = (int)Vector3.Distance(transform.position, startingPosition);
         
-        transform.position = new Vector3(transform.position.x + (isFacingRight? -0.005f : +0.005f), transform.position.y, transform.position.z);
+        transform.position = new Vector3(transform.position.x + (isFacingRight? -0.003f : +0.003f), transform.position.y, transform.position.z);
 
         if (distance > 5)
         {   
