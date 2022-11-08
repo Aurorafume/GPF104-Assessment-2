@@ -37,6 +37,8 @@ public class EnemyScript : MonoBehaviour
             startingPosition = transform.position;
             Flip();
         }
+
+        checkCollidingSide();
     }
 
     private void Flip()
@@ -64,4 +66,32 @@ public class EnemyScript : MonoBehaviour
                 Player = null;
             }
         }
+
+        // determine if the player is to the left or right of the enemy
+        void checkCollidingSide()
+        {
+            if (playerSensor.IsTouchingLayers(LayerMask.GetMask("Player")))
+            {
+                // get the x coordinate of the middle of the enemy's collider
+                float enemyX = playerSensor.bounds.center.x;
+                // get the x coordinate of the middle of the player's collider
+                float playerX = Player.position.x;
+                // determine if the player is to the left or right of the enemy
+                if (playerX < enemyX)
+                {
+                    // player is to the left of the enemy
+                    Debug.Log("Player is to the left of the enemy");
+                    // flip the enemy to face the player
+                    transform.localScale = new Vector3(-1, 1, 1);
+                }
+                else
+                {
+                    // player is to the right of the enemy
+                    Debug.Log("Player is to the right of the enemy");
+                    // flip the enemy to face the player
+                    transform.localScale = new Vector3(1, 1, 1);
+                }
+            }
+     }
+    
 }

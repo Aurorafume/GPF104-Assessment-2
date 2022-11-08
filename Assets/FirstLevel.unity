@@ -311,7 +311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHP: 3
   playerSensorDistance: 5
-  playerSensor: {fileID: 0}
+  playerSensor: {fileID: 33400371}
   <PlayerInArea>k__BackingField: 0
   detectionTag: Player
 --- !u!61 &33400371
@@ -2879,7 +2879,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHP: 3
   playerSensorDistance: 5
-  playerSensor: {fileID: 0}
+  playerSensor: {fileID: 961815459}
   <PlayerInArea>k__BackingField: 0
   detectionTag: Player
 --- !u!61 &961815459
@@ -3352,8 +3352,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1195266902}
-  rb: {fileID: 1195266900}
+  jumpForce: 15
+  jumpTime: 0.5
   groundCheck: {fileID: 1025695998}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
+  extraJumps: 1
+  rb: {fileID: 1195266900}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -3461,9 +3467,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 15
   jumpTime: 0.5
+  rb: {fileID: 0}
+  playerCollider: {fileID: 0}
+  isGrounded: 0
   groundCheck: {fileID: 1025695998}
   whatIsGround:
-    serializedVersion: 2
     m_Bits: 64
   extraJumps: 1
 --- !u!95 &1195266902
@@ -3813,7 +3821,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHP: 3
   playerSensorDistance: 5
-  playerSensor: {fileID: 0}
+  playerSensor: {fileID: 1360947992}
   <PlayerInArea>k__BackingField: 0
   detectionTag: Player
 --- !u!61 &1360947992
@@ -4036,7 +4044,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHP: 3
   playerSensorDistance: 5
-  playerSensor: {fileID: 0}
+  playerSensor: {fileID: 1450415980}
   <PlayerInArea>k__BackingField: 0
   detectionTag: Player
 --- !u!95 &1450415984

@@ -10,13 +10,24 @@ public class Player_Movement : MonoBehaviour
     private float speed = 8f;
     private float jumpingPower = 16f;
     private bool isFacingRight = true;
-    private bool isGrounded;
     float horizontalMove = 0f;
+    public float jumpForce = 10f;
+    public float jumpTime = 0.5f;
+    private Collider2D playerCollider;
+    private bool isGrounded;
+    public Transform groundCheck;
+    public LayerMask whatIsGround;
+    public int extraJumps = 1;
 
 
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        playerCollider = GameObject.Find("Player").GetComponent<Collider2D>();
+    }
 
     void Update()
     {
@@ -24,6 +35,42 @@ public class Player_Movement : MonoBehaviour
         Flip();
 
         animator.SetFloat("speed", Mathf.Abs(horizontalMove));
+
+        // If the player is on the ground, reset the number of jumps
+        if (isGrounded)
+        {
+            extraJumps = 1;
+        }
+
+        // List all floor objects in parent element
+        Collider2D[] colliders = GameObject.Find("Level").GetComponentsInChildren<Collider2D>();
+
+        // Check if player collider is touching any of these colliders
+        bool touching = false;
+        foreach (Collider2D c in colliders)
+        {
+            if (c.IsTouching(playerCollider))
+            {
+                touching = true;
+                break;
+            }
+        }
+
+        // Only let ground check turn true if player is on game object "Level"
+        isGrounded = touching;
+
+        // Press space to jump
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            rb.velocity = Vector2.up * jumpForce;
+        }
+
+        // Let player jump again if they have extra jumps
+        if (Input.GetKeyDown(KeyCode.Space) && extraJumps > 0)
+        {
+            rb.velocity = Vector2.up * jumpForce;
+            extraJumps--;
+        }
     }
 
     private void FixedUpdate()
