@@ -10,8 +10,6 @@ public class Coyote_JumpBuffer : MonoBehaviour
     private bool isFacingRight = true;
 
     private bool isJumping;
-
-    private float coyoteTime = 0.2f;
     private float coyoteTimeCounter;
 
     private float jumpBufferTime = 0.2f;

@@ -7,14 +7,10 @@ public class EnemyScript : MonoBehaviour
     public int enemyHP = 3;
     private bool isFacingRight = true;
     private bool isPlayerRight = true;
-    private bool isEnemyMoving = true;
     private Vector3 startingPosition;
-    private bool playerDetected = false;
     public int playerSensorDistance = 5;
     [field: SerializeField]
     private Collider2D Enemy;
-
-
     [field: SerializeField]
     public bool PlayerInArea { get; private set; }
     public Transform Player { get; private set; }
@@ -35,6 +31,20 @@ public class EnemyScript : MonoBehaviour
         {
             // Code to walk back and forth between starting position and starting position + 5
             transform.position = new Vector3(transform.position.x + (isFacingRight? -0.003f : +0.003f), transform.position.y, transform.position.z);
+        }
+
+        if (PlayerInArea == true)
+        {
+            // Code to force flip enemy to face player
+            if (isPlayerRight == true)
+            {
+                transform.localScale = new Vector3(-2, 2, 2);
+            }
+            else
+            {
+                transform.localScale = new Vector3(-2, 2, 2);
+            }
+
         }
         
         // calculation to check if enemy was walked 5 units
@@ -93,25 +103,11 @@ public class EnemyScript : MonoBehaviour
             }
         }
 
-        /* determine if the player is to the left or right of the enemy
-        void checkCollidingSide()
-        {   
-            // Check if player is in the sensor
-            if (playerSensor.IsTouchingLayers(LayerMask.GetMask("Player")))
-            {
-                float enemyX = playerSensor.bounds.center.x;
-                float playerX = Player.position.x;
-                if (playerX < enemyX)
-                {
-                    Debug.Log("Player is to the left of the enemy");
-                    transform.localScale = new Vector3(-1, 1, 1);
-                }
-                else
-                {
-                    Debug.Log("Player is to the right of the enemy");
-                    transform.localScale = new Vector3(1, 1, 1);
-                }
-            }
-        }*/
+       // function to make enemy shoot at player
+        public void Shoot()
+        {
+            // Code to make enemy shoot at player
+            
+        }
     
 }

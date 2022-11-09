@@ -1,10 +1,10 @@
-/*using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Double_Jump : MonoBehaviour
 {
-    public float jumpForce = 10f;
+    /*public float jumpForce = 10f;
     public float jumpTime = 0.5f;
     private Rigidbody2D rb;
     private Collider2D playerCollider;
@@ -57,5 +57,5 @@ public class Double_Jump : MonoBehaviour
             extraJumps--;
         }
 
-    }
-}*/
+    }*/
+}
