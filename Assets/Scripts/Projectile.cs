@@ -12,8 +12,13 @@ public class Projectile : MonoBehaviour
         // get imput from player
         if (Input.GetMouseButtonDown(0))
         {
+            bool isFacingRight = transform.localScale.x < 0;
             // spawn a projectile
-            Instantiate(Bullet, firePosition.position, firePosition.rotation);
+            Quaternion q = gameObject.transform.rotation;
+            // Flip Quaternion 
+            if(isFacingRight)
+                q.y = 180;
+            Instantiate(Bullet, firePosition.position, q);
         }
     }
 }
