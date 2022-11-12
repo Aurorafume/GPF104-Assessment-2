@@ -3,19 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
-{   
-    public float speed = 10f;
+{
+    public Transform firePosition;
+    public GameObject Bullet;
 
     void Update()
-    {   
-        transform.position += - transform.right * Time.deltaTime * speed;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        // get imput from player
+        if (Input.GetMouseButtonDown(0))
         {
-            Destroy(gameObject);
+            // spawn a projectile
+            Instantiate(Bullet, firePosition.position, firePosition.rotation);
         }
     }
 }
