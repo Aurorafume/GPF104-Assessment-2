@@ -6,7 +6,6 @@ public class EnemyScript : MonoBehaviour
 {   
     public int enemyHP = 3;
     private bool isFacingRight = true;
-    private bool isPlayerRight = true;
     private Vector3 startingPosition;
     public int playerSensorDistance = 5;
     [field: SerializeField]
@@ -17,9 +16,6 @@ public class EnemyScript : MonoBehaviour
     public bool PlayerInArea { get; private set; }
     [field: SerializeField]
     public Collider2D Player { get; private set; }
-
-    [SerializeField]
-    private string detectionTag = "Player";
 
     // Start is called before the first frame update
     void Start()

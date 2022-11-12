@@ -31,7 +31,6 @@ public class ProjectileOnAsset : MonoBehaviour
     {
         if(collision.GetComponentInParent<EnemyScript>() != null) {
             Debug.Log("Hit");
-            Instantiate(ProjectileImpact, transform.position, Quaternion.identity);
             collision.GetComponentInParent<EnemyScript>().TakeDamage(1);
             Destroy(gameObject);
         }
