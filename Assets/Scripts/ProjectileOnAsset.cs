@@ -10,6 +10,7 @@ public class ProjectileOnAsset : MonoBehaviour
     public GameObject ProjectileImpact;
     public Vector3 startingPosition;
     private Rigidbody2D rb;
+    public GameObject shooter;
 
     void Start()
     {   
@@ -29,9 +30,16 @@ public class ProjectileOnAsset : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.GetComponentInParent<EnemyScript>() != null) {
-            Debug.Log("Hit");
-            collision.GetComponentInParent<EnemyScript>().TakeDamage(1);
+        if(collision.GetComponentInParent<EnemyScript>() != null || collision.GetComponentInParent<Heart_System>() != null) {
+            if(collision.gameObject == shooter) 
+                return;
+            
+            if(collision.GetComponentInParent<EnemyScript>()) {
+                collision.GetComponentInParent<EnemyScript>().TakeDamage(1);
+            } else {
+                collision.GetComponent<Heart_System>().TakeDamage(2);
+            }
+            
             Destroy(gameObject);
         }
     }
