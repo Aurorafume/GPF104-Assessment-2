@@ -1,24 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class End_Game : MonoBehaviour
 {   
-    public GameObject flag;
+    [SerializeField] private GameObject player;
+    [SerializeField] public GameObject flag;
+
     private Collider2D flagCollider;
     private Collider2D Player;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
+        // get collider2d of flag
+        flagCollider = flag.GetComponent<Collider2D>();
+        // get collider2d of player
+        Player = player.GetComponent<Collider2D>();
+        // check if player is in flag
         if (flagCollider.IsTouching(Player))
         {
-            Debug.Log("You Win!");
+            SceneManager.LoadScene("Menu");
         }
     }
 }

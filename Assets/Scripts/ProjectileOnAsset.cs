@@ -37,7 +37,7 @@ public class ProjectileOnAsset : MonoBehaviour
             if(collision.GetComponentInParent<EnemyScript>()) {
                 collision.GetComponentInParent<EnemyScript>().TakeDamage(1);
             } else {
-                collision.GetComponent<Heart_System>().TakeDamage(2);
+                collision.GetComponent<Heart_System>().TakeDamage(1);
             }
             
             Destroy(gameObject);
