@@ -13,8 +13,6 @@ public class Heart_System : MonoBehaviour
     public int numberLives = 3;
     private long lastHealthUpdate = -1;
 
-    [SerializeField] private AudioSource deathSoundEffect;
-    [SerializeField] private AudioSource hurtSoundEffect;
    
     void Update()
     {
@@ -60,7 +58,7 @@ public class Heart_System : MonoBehaviour
         if(life == 0) return;
         life -= d;
 
-        hurtSoundEffect.Play();
+        
     }
 
 
@@ -83,7 +81,7 @@ public class Heart_System : MonoBehaviour
     // when player reaches 0 lives, they lose the game
     public void LoseGame() {
         if(numberLives == 0) {
-           deathSoundEffect.Play();
+         
             SceneManager.LoadScene("Menu");
         }
     }
