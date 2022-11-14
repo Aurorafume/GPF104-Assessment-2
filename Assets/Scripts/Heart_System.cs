@@ -55,11 +55,14 @@ public class Heart_System : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int d){
+    public void TakeDamage(int d)
+    
+    {
+        HurtSoundEffect.Play();
         lastHealthUpdate = System.DateTime.Now.Ticks;
         if(life == 0) return;
         life -= d;
-        HurtSoundEffect.Play();
+      
         
     }
 
@@ -75,6 +78,7 @@ public class Heart_System : MonoBehaviour
     public void LoseLife() {
         if (life == 0)
         {
+
             numberLives -= 1;
             life = 10;
         }
