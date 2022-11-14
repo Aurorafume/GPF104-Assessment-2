@@ -41,6 +41,9 @@ public class Player_Movement : MonoBehaviour
         if (isGrounded)
         {
             extraJumps = 1;
+            animator.SetBool("isGrounded", true);
+            isGrounded = true;
+            
         }
 
         // List all floor objects in parent element
