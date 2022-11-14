@@ -13,7 +13,9 @@ public class Heart_System : MonoBehaviour
     public int numberLives = 3;
     private long lastHealthUpdate = -1;
 
-   
+    [SerializeField] private AudioSource HurtSoundEffect;
+
+
     void Update()
     {
 
@@ -57,7 +59,7 @@ public class Heart_System : MonoBehaviour
         lastHealthUpdate = System.DateTime.Now.Ticks;
         if(life == 0) return;
         life -= d;
-
+        HurtSoundEffect.Play();
         
     }
 
