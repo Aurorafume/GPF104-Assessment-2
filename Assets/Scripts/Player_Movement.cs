@@ -65,6 +65,7 @@ public class Player_Movement : MonoBehaviour
         {
             jumpSoundEffect.Play();
             rb.velocity = Vector2.up * jumpForce;
+            animator.SetBool("isJumping", true);
         }
 
         // Let player jump again if they have extra jumps
