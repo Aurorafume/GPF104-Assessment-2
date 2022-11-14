@@ -4750,6 +4750,11 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 2497148154195002797, guid: 13a121862bb7cf44ba1af07ba44a51a1, type: 3}
   m_PrefabInstance: {fileID: 2497148155321030398}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1195266900 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2497148154195002787, guid: 13a121862bb7cf44ba1af07ba44a51a1, type: 3}
+  m_PrefabInstance: {fileID: 2497148155321030398}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1196945505
 GameObject:
   m_ObjectHideFlags: 0
@@ -9011,10 +9016,26 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2497148154195002787, guid: 13a121862bb7cf44ba1af07ba44a51a1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2497148154195002789, guid: 13a121862bb7cf44ba1af07ba44a51a1, type: 3}
+      propertyPath: m_Volume
+      value: 0.399
+      objectReference: {fileID: 0}
+    - target: {fileID: 2497148154195002789, guid: 13a121862bb7cf44ba1af07ba44a51a1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9022dcf1e982e0342ac01bcd74680d7e, type: 3}
     - target: {fileID: 2497148154195002790, guid: 13a121862bb7cf44ba1af07ba44a51a1, type: 3}
       propertyPath: flag
       value: 
       objectReference: {fileID: 1919852968}
+    - target: {fileID: 2497148154195002798, guid: 13a121862bb7cf44ba1af07ba44a51a1, type: 3}
+      propertyPath: HurtSoundEffect
+      value: 
+      objectReference: {fileID: 1195266900}
     - target: {fileID: 2497148154195002798, guid: 13a121862bb7cf44ba1af07ba44a51a1, type: 3}
       propertyPath: hearts.Array.data[0]
       value: 
