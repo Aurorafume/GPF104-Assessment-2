@@ -22,6 +22,8 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private LayerMask groundLayer;
 
+    [SerializeField] private AudioSource jumpSoundEffect;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -61,6 +63,7 @@ public class Player_Movement : MonoBehaviour
         // Press space to jump
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
+            jumpSoundEffect.Play();
             rb.velocity = Vector2.up * jumpForce;
         }
 
