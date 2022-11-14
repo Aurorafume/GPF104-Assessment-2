@@ -12,6 +12,8 @@ public class Projectile : MonoBehaviour
     public Vector3 startingPosition;
     private Rigidbody2D rb;
 
+    [SerializeField] private AudioSource AttackSoundEffect;
+
     void Start()
     {   
         rb = GetComponent<Rigidbody2D>();
@@ -24,6 +26,8 @@ public class Projectile : MonoBehaviour
         // get imput from player
         if (Input.GetMouseButtonDown(0))
         {
+            AttackSoundEffect.Play();
+
             bool isFacingRight = transform.localScale.x < 0;
             // spawn a projectile
             Quaternion q = gameObject.transform.rotation;
