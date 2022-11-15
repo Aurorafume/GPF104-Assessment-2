@@ -17,6 +17,7 @@ public class Player_Movement : MonoBehaviour
     public Transform groundCheck;
     public LayerMask whatIsGround;
     public int extraJumps = 1;
+    private bool isJumping;
 
 
     [SerializeField] private Rigidbody2D rb;
@@ -36,12 +37,21 @@ public class Player_Movement : MonoBehaviour
         Flip();
 
         animator.SetFloat("speed", Mathf.Abs(horizontalMove));
+        if (isGrounded == false)
+        {
+            animator.SetBool("isJumping", true);
+        }
+        if (isGrounded == true)
+        {
+            animator.SetBool("isJumping", false);    
+        }
 
         // If the player is on the ground, reset the number of jumps
         if (isGrounded)
         {
+          
             extraJumps = 1;
-            animator.SetBool("isGrounded", true);
+           
             isGrounded = true;
             
         }
@@ -68,7 +78,7 @@ public class Player_Movement : MonoBehaviour
         {
             jumpSoundEffect.Play();
             rb.velocity = Vector2.up * jumpForce;
-            animator.SetBool("isJumping", true);
+           
         }
 
         // Let player jump again if they have extra jumps
