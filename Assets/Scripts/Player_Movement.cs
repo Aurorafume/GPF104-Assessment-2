@@ -13,7 +13,7 @@ public class Player_Movement : MonoBehaviour
     public float jumpForce = 10f;
     public float jumpTime = 0.5f;
     private Collider2D playerCollider;
-    private bool isGrounded;
+    public bool isGrounded;
     public Transform groundCheck;
     public LayerMask whatIsGround;
     public int extraJumps = 1;
